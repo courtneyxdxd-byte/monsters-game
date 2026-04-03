@@ -42,9 +42,14 @@ public class Game {
             }
             Monster[] arrMonsters = new Monster[20];
             for (int i = 0; i < arrMonsters.length; i++) {
-                Monster m = new Monster(sizeBoard);
-                arrMonsters[i]= m;
-                board[(m.getY() - 1)][m.getX() - 1] = m.getImage();
+                Monster test;
+                if (random.nextBoolean()) {
+                    test = new Monster(sizeBoard);
+                } else {
+                    test = new BigMonster(sizeBoard);
+                }
+                arrMonsters[i]= test;
+                board[(test.getY() - 1)][test.getX() - 1] = test.getImage();
             }
 
             while ((person.getLive() > 0) && !(castleX == person.getX() && castleY == person.getY())) {
