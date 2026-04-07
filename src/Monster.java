@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Monster {
     private String image = "\uD83E\uDDDF\u200D";
-    private final int x, y;
+    protected int x, y;
     Random r = new Random();
 
     Monster(int sizeBoard){

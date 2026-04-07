@@ -2,9 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SchoolMonster extends Monster {
-    private String image = "U+1F9DB";
-    private final int x;
-    private final int y;
+    private String image = "\uD83E\uDDDB";
     Random r = new Random();
     SchoolMonster(int sizeBoard) {
         super(sizeBoard);

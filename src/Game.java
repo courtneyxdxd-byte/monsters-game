@@ -46,7 +46,11 @@ public class Game {
                 if (random.nextBoolean()) {
                     test = new Monster(sizeBoard);
                 } else {
-                    test = new BigMonster(sizeBoard);
+                    if (random.nextBoolean()) {
+                        test = new BigMonster(sizeBoard);
+                    } else {
+                        test = new SchoolMonster(sizeBoard);
+                    }
                 }
                 arrMonsters[i]= test;
                 board[(test.getY() - 1)][test.getX() - 1] = test.getImage();
@@ -56,18 +60,12 @@ public class Game {
                 // логика хода
                 board[(castleY - 1)][castleX - 1] = castle;
                 board[(person.getY() - 1)][person.getX() - 1] = person.getImage();
-                for (int y = 1; y <= sizeBoard; y++) {
-                    System.out.println(wall);
-                    for (int x = 1; x <= sizeBoard; x++) {
-                        System.out.print(leftBlock);
-                        System.out.print(board[(y - 1)][x - 1]);
-                    }
-                    System.out.println(rightBlock);
-                }
-                System.out.println(wall);
+                outputBoard(board,person.getLive());
                 System.out.println("Введите куда будет ходить персонаж(ход возможен только по вертикали и горизонтали на одну клетку;");
                 System.out.println("Координаты персонажа - (x: " + person.getX() + ", y: " + person.getY() + "))");
+                System.out.println("enter x");
                 int x = scanner.nextInt();
+                System.out.println("enter y");
                 int y = scanner.nextInt();
                 if (x != person.getX() && y != person.getY()) {
                     System.out.println("Неккоректный ход");
